@@ -666,9 +666,298 @@ footer {
 }
 
 .announcement-banner {
-  background-color: var(--success);
+  background: linear-gradient(135deg, var(--success) 0%, #1b5e20 100%);
   color: white;
   text-align: center;
+  padding: 15px 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#announcement-container {
+  max-width: 1200px;
+  margin: 0 auto 15px;
+  padding: 0 12px;
+}
+
+/* Manage Announcements Button */
+#manage-announcements-button {
+  margin-right: 15px;
+}
+
+.announcement-icon {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+/* Announcement Modal Styles */
+.announcement-modal-content {
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.announcement-form-section {
+  background-color: var(--background);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.announcement-form-section h4 {
+  margin-bottom: 15px;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 5px;
+}
+
+.form-group small {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-top: 5px;
+}
+
+.required {
+  color: var(--error);
+  margin-left: 2px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.primary-btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-light);
+}
+
+.secondary-btn {
+  background-color: var(--text-secondary);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.secondary-btn:hover {
+  background-color: var(--text-primary);
+}
+
+.announcements-list-section {
+  margin-top: 20px;
+}
+
+.announcements-list-section h4 {
+  margin-bottom: 15px;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.announcement-item {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 5px;
   padding: 15px;
-  font-weight: bold;
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.announcement-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-item.expired {
+  opacity: 0.6;
+  background-color: var(--background);
+}
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.announcement-message {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-right: 15px;
+  word-wrap: break-word;
+}
+
+.announcement-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.announcement-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+
+.edit-btn {
+  background-color: var(--info);
+  color: white;
+}
+
+.edit-btn:hover {
+  opacity: 0.8;
+}
+
+.delete-btn {
+  background-color: var(--error);
+  color: white;
+}
+
+.delete-btn:hover {
+  opacity: 0.8;
+}
+
+.announcement-dates {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.date-label {
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.status-active {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.status-scheduled {
+  background-color: var(--info-light);
+  color: var(--info);
+}
+
+.status-expired {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 20px;
+}
+
+.no-announcements {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 30px;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .announcement-modal-content {
+    max-width: 100%;
+    margin: 10px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .announcement-header {
+    flex-direction: column;
+  }
+  
+  .announcement-message {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .announcement-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
